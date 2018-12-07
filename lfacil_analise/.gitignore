@@ -22,7 +22,7 @@ target/
 # eclipse project file
 .settings/
 .classpath
-.project
+
 
 # IntelliJ project files 
 *.iml
