@@ -1,29 +1,18 @@
 package lfacil.analise.processa;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import lfacil.analise.entidade.Sorteio;
-
 public class Analise {
 	
-	private final String baseTxt = "C:\\Projetos\\lfacil_analise\\src\\main\\resources\\result.txt";
-
+	FactoryBase fac;
+	
 	int[] dzn_full;
-	//int[] dzn_ultimoSort  = {1,3,5,6,7,8,10,14,15,18,19,21,22,23,24};
-	
-	//int[] dzn_ultimoSort  = {1,3,5,6,7,10,13,14,15,16,17,18,23,24,25};
-	
-	//int[] dzn_ultimoSort  = {1,4,8,9,10,12,13,15,16,17,19,20,21,23,24};
+
 	
 	int[] dzn_ultimoSort =  {1,3,4,5,7,8,9,10,11,14,15,21,22,23,24};
-
-	List<Sorteio> base;
 
 	public static void main(String[] args) {
 		
@@ -36,37 +25,15 @@ public class Analise {
 	}
 	
 	private void load(){
+		fac = new FactoryBase();
 		dzn_full = IntStream.range(1, 26).toArray();
 	}
 	
-	private void loadBaseTxt() throws IOException {
-
-		base = new ArrayList<>();
-
-		try (BufferedReader br = new BufferedReader(new FileReader(this.baseTxt))) {
-			String line;
-			while ((line = br.readLine()) != null) {
-
-				String[] linha = line.split(";");
-
-				Sorteio sort = Sorteio.builder()
-						.concurso(linha[0])
-						.bola1(Integer.parseInt(linha[1]))
-						.build();
-
-				base.add(sort);
-
-				System.out.println(sort);
-
-			}
-		}
-
-
-	}
+	
 	
 	private void ultimoSorteio(){
 		
-		System.out.println("Ultimo Sorteio: " + Arrays.toString(this.dzn_ultimoSort));
+		System.out.println("Ultimo Sorteio: " + this.fac.getLastSorteio());
 		System.out.println("####################");
 			
 	}
@@ -76,7 +43,7 @@ public class Analise {
 		List<Integer> pares = new ArrayList<Integer>();
 		List<Integer> impares = new ArrayList<Integer>();
 			
-		for (int n : this.dzn_ultimoSort){
+		for (int n : fac.getDezenas(fac.getLastSorteio())){
 			
 			if (n % 2 == 0){
 				pares.add(n);
@@ -105,7 +72,7 @@ public class Analise {
 		List<Integer> sortL4 = new ArrayList<Integer>();
 		List<Integer> sortL5 = new ArrayList<Integer>();
 		
-		for (int n : this.dzn_ultimoSort){
+		for (int n : fac.getDezenas(fac.getLastSorteio())){
 			
 			if (linha1.contains(n)){
 				sortL1.add(n);

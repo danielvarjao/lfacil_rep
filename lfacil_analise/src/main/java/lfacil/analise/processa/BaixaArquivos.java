@@ -15,8 +15,8 @@ import java.util.zip.ZipInputStream;
 
 public class BaixaArquivos {
 
-	private final String path_base = "C:\\Projetos\\lfacil_analise\\src\\main\\resources";
-	private final String arquivo_base = "C:\\Projetos\\lfacil_analise\\src\\main\\resources\\base.zip";
+	private final String path_base = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources";
+	private final String arquivo_base = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\base.zip";
 
 	public static void main(String[] args) {
 

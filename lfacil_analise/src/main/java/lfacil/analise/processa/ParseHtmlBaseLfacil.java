@@ -1,11 +1,8 @@
 package lfacil.analise.processa;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -20,8 +17,8 @@ import lfacil.analise.entidade.Sorteio;
 
 public class ParseHtmlBaseLfacil {
 	
-	private final String path_html = "C:\\Projetos\\lfacil_analise\\src\\main\\resources\\D_LOTFAC.HTM";
-	private final String baseTxt = "C:\\Projetos\\lfacil_analise\\src\\main\\resources\\result.txt";
+	private final String path_html = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\D_LOTFAC.HTM";
+	private final String baseTxt = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\result.txt";
 
 	public static void main(String[] args) {
 
@@ -59,21 +56,21 @@ public class ParseHtmlBaseLfacil {
 					
 					Sorteio sorteio = new Sorteio();
 					sorteio.setConcurso(tds.get(0).text());
-					sorteio.setBola1(Integer.parseInt(tds.get(2).text()));
-					sorteio.setBola2(Integer.parseInt(tds.get(3).text()));
-					sorteio.setBola3(Integer.parseInt(tds.get(4).text()));
-					sorteio.setBola4(Integer.parseInt(tds.get(5).text()));
-					sorteio.setBola5(Integer.parseInt(tds.get(6).text()));
-					sorteio.setBola6(Integer.parseInt(tds.get(7).text()));
-					sorteio.setBola7(Integer.parseInt(tds.get(8).text()));
-					sorteio.setBola8(Integer.parseInt(tds.get(9).text()));
-					sorteio.setBola9(Integer.parseInt(tds.get(10).text()));
-					sorteio.setBola10(Integer.parseInt(tds.get(11).text()));
-					sorteio.setBola11(Integer.parseInt(tds.get(12).text()));
-					sorteio.setBola12(Integer.parseInt(tds.get(13).text()));
-					sorteio.setBola13(Integer.parseInt(tds.get(14).text()));
-					sorteio.setBola14(Integer.parseInt(tds.get(15).text()));
-					sorteio.setBola15(Integer.parseInt(tds.get(16).text()));
+					sorteio.setBola1(tds.get(2).text());
+					sorteio.setBola2(tds.get(3).text());
+					sorteio.setBola3(tds.get(4).text());
+					sorteio.setBola4(tds.get(5).text());
+					sorteio.setBola5(tds.get(6).text());
+					sorteio.setBola6(tds.get(7).text());
+					sorteio.setBola7(tds.get(8).text());
+					sorteio.setBola8(tds.get(9).text());
+					sorteio.setBola9(tds.get(10).text());
+					sorteio.setBola10(tds.get(11).text());
+					sorteio.setBola11(tds.get(12).text());
+					sorteio.setBola12(tds.get(13).text());
+					sorteio.setBola13(tds.get(14).text());
+					sorteio.setBola14(tds.get(15).text());
+					sorteio.setBola15(tds.get(16).text());
 					sorteio.sort();
 					
 					listSorteios.add(sorteio);
@@ -98,7 +95,7 @@ public class ParseHtmlBaseLfacil {
 		}
 		bw.close();
 		
-
+		System.out.println("Base em TXT carregada.");
 		
 	}
 	
