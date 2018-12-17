@@ -1,12 +1,8 @@
 package lfacil.analise.processa;
 
-import java.io.File;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.stream.IntStream;
 
 public class Analise {
@@ -31,17 +27,6 @@ public class Analise {
 	private void load(){
 		fac = new FactoryBase();
 		
-//		ResourceBundle res = ResourceBundle.getBundle("config");
-//		
-//		URL url = getClass().getResource(res.getString("baseTxt"));
-//		try {
-//			File file = new File(url.toURI());
-//		} catch (URISyntaxException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		System.out.println(res.getString("teste"));
 		dzn_full = IntStream.range(1, 26).toArray();
 	}
 	

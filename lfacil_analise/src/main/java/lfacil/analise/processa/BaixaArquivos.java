@@ -15,8 +15,8 @@ import java.util.zip.ZipInputStream;
 
 public class BaixaArquivos {
 
-	private final String path_base = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources";
-	private final String arquivo_base = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\base.zip";
+	//private final String path_base = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources";
+	//private final String arquivo_base = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\base.zip";
 
 	public static void main(String[] args) {
 
@@ -38,14 +38,14 @@ public class BaixaArquivos {
 	
 	private void deletarArquivos() {
 		
-		File file = new File(this.path_base);
+		File file = new File(FactoryArquivos.getPathBase());
 		
 		for (File arq : file.listFiles()) {
-			if (arq.isFile()) {
+			if (arq.isFile() && !(arq.getName().endsWith(".properties"))) {
 				arq.delete();
 			}
 		}
-		
+		//Arrays.stream(yourDir.listFiles((f, p) -> p.endsWith("YOUR_FILE_EXTENSION"))).forEach(File::delete);  
 		System.out.println("Arquivos removidos.");
 	}
 	
@@ -60,7 +60,7 @@ public class BaixaArquivos {
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		connection.setRequestMethod("GET");
 		InputStream in = connection.getInputStream();
-		FileOutputStream fis = new FileOutputStream(this.arquivo_base);
+		FileOutputStream fis = new FileOutputStream(FactoryArquivos.getArquivoBaseZip());
 		
 		byte[] buffer = new byte[1024];
 		int count = 0;
@@ -78,14 +78,14 @@ public class BaixaArquivos {
 	private void extrairZip() throws IOException{
 		
 		byte[] buffer = new byte[1024];
-		ZipInputStream zis = new ZipInputStream(new FileInputStream(this.arquivo_base));
+		ZipInputStream zis = new ZipInputStream(new FileInputStream(FactoryArquivos.getArquivoBaseZip()));
 		
 		ZipEntry zipEntry = zis.getNextEntry();
 		
 		while (zipEntry != null) {
 			
 			String fileName = zipEntry.getName();
-            File newFile = new File(this.path_base + "/" + fileName);
+            File newFile = new File(FactoryArquivos.getPathBase() + "/" + fileName);
             FileOutputStream fos = new FileOutputStream(newFile);
             int len;
             while ((len = zis.read(buffer)) > 0) {

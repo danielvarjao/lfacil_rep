@@ -17,8 +17,8 @@ import lfacil.analise.entidade.Sorteio;
 
 public class ParseHtmlBaseLfacil {
 	
-	private final String path_html = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\D_LOTFAC.HTM";
-	private final String baseTxt = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\result.txt";
+	//private final String path_html = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\D_LOTFAC.HTM";
+	//private final String baseTxt = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\result.txt";
 
 	public static void main(String[] args) {
 
@@ -36,7 +36,7 @@ public class ParseHtmlBaseLfacil {
 	
 	private void gerarTxtResultados() throws IOException {
 		
-		File base = new File(this.path_html);
+		File base = new File(FactoryArquivos.getArquivoBaseHtml());
 		
 		List<Sorteio> listSorteios = new ArrayList<Sorteio>(); 
 		
@@ -83,7 +83,7 @@ public class ParseHtmlBaseLfacil {
 		}
 		
 		
-		File baseTxt = new File(this.baseTxt);
+		File baseTxt = new File(FactoryArquivos.getFileBaseTxt());
 		
 		FileOutputStream fos = new FileOutputStream(baseTxt);
 		 

@@ -10,7 +10,7 @@ import lfacil.analise.entidade.Sorteio;
 
 public class FactoryBase {
 	
-	private final String baseTxt = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\result.txt";
+	//private final String baseTxt = "C:\\Projetos\\lfacil_rep\\lfacil_analise\\src\\main\\resources\\result.txt";
 	
 	List<Sorteio> base;
 	
@@ -28,7 +28,7 @@ public class FactoryBase {
 
 		base = new ArrayList<>();
 
-		try (BufferedReader br = new BufferedReader(new FileReader(this.baseTxt))) {
+		try (BufferedReader br = new BufferedReader(new FileReader(FactoryArquivos.getFileBaseTxt()))) {
 			String line;
 			while ((line = br.readLine()) != null) {
 
