@@ -23,11 +23,12 @@ public class BaixaArquivos {
 		try {
 			
 			BaixaArquivos gerador = new BaixaArquivos();
+			ParseHtmlBaseLfacil parser = new ParseHtmlBaseLfacil();
 			
 			gerador.deletarArquivos();
 			gerador.downloadBaseResultados();
 			gerador.extrairZip();
-			
+			parser.gerarTxtResultados();
 			
 		} catch (IOException e) {
 			e.printStackTrace();

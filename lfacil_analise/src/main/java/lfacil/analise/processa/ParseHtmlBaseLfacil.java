@@ -34,7 +34,7 @@ public class ParseHtmlBaseLfacil {
 	}
 	
 	
-	private void gerarTxtResultados() throws IOException {
+	protected void gerarTxtResultados() throws IOException {
 		
 		File base = new File(FactoryArquivos.getArquivoBaseHtml());
 		
