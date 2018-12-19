@@ -17,19 +17,19 @@ public class Analise {
 	public static void main(String[] args) {
 		
 		Analise anl = new Analise();
-		
-		anl.load();
+				
 		anl.ultimoSorteio();		
 		anl.analiseParImpar();
 		anl.analiseLinhas();
+		anl.analiseMaximoSalto();
 	}
 	
-	private void load(){
+	public Analise() {
+		
 		fac = new FactoryBase();
 		
 		dzn_full = IntStream.range(1, 26).toArray();
 	}
-	
 	
 	
 	private void ultimoSorteio(){
@@ -107,7 +107,25 @@ public class Analise {
 		System.out.println("Linha 3 - " + sortL3);
 		System.out.println("Linha 4 - " + sortL4);
 		System.out.println("Linha 5 - " + sortL5);
+		System.out.println("####################");
 		
+	}
+	
+	public void analiseMaximoSalto() {
+		
+		Integer[] arr = fac.getDezenas(fac.getLastSorteio()).toArray(new Integer[0]);
+		
+		int salto = 0;
+		for (int i=0, j=1; i < arr.length-1; i++, j++) {
+			
+			int saltoTemp = arr[j] - arr[i];
+			salto = (saltoTemp > salto) ? saltoTemp : salto;
+		}
+		
+		salto--;
+		
+		System.out.println("Máximo salto: " + salto);
+		System.out.println("####################");
 	}
 	
 }
