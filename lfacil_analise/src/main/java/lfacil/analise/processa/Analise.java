@@ -18,10 +18,11 @@ public class Analise {
 		
 		Analise anl = new Analise();
 				
-		anl.ultimoSorteio();		
-		anl.analiseParImpar();
-		anl.analiseLinhas();
-		anl.analiseMaximoSalto();
+//		anl.ultimoSorteio();		
+//		anl.analiseParImpar();
+//		anl.analiseLinhas();
+//		anl.analiseMaximoSalto();
+		anl.analiseMaximoSucessivas();
 	}
 	
 	public Analise() {
@@ -122,9 +123,38 @@ public class Analise {
 			salto = (saltoTemp > salto) ? saltoTemp : salto;
 		}
 		
-		salto--;
 		
-		System.out.println("Máximo salto: " + salto);
+		System.out.println("Máximo salto: " + --salto);
+		System.out.println("####################");
+	}
+	
+	public void analiseMaximoSucessivas() {
+	
+		Integer[] arr = fac.getDezenas(fac.getLastSorteio()).toArray(new Integer[0]);
+		
+		int sucessivas = 0;
+		for (int i=0; i < arr.length-1; i++) {
+			
+			int inicial = arr[i];
+			int contador = 1;
+			boolean continua = true;
+			
+			while (continua) {
+				
+				if (inicial+contador == arr[contador]) {
+					sucessivas++;
+					contador++;
+				}else {
+					continua = false;
+					System.out.println(sucessivas);
+					continue;
+				}
+				
+			}
+		}
+		
+		
+		System.out.println("Máximo sucessivas: " + sucessivas);
 		System.out.println("####################");
 	}
 	
