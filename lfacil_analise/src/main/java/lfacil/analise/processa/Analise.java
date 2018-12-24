@@ -2,6 +2,7 @@ package lfacil.analise.processa;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -9,34 +10,29 @@ public class Analise {
 	
 	FactoryBase fac;
 	
-	int[] dzn_full;
-
-	
-	int[] dzn_ultimoSort =  {1,3,4,5,7,8,9,10,11,14,15,21,22,23,24};
+	int[] dzn_full = IntStream.range(1, 26).toArray();
 
 	public static void main(String[] args) {
 		
 		Analise anl = new Analise();
 				
-//		anl.ultimoSorteio();		
-//		anl.analiseParImpar();
-//		anl.analiseLinhas();
-//		anl.analiseMaximoSalto();
+		anl.ultimoSorteio();		
+		anl.analiseParImpar();
+		anl.analiseLinhas();
+		anl.analiseMaximoSalto();
 		anl.analiseMaximoSucessivas();
 	}
 	
 	public Analise() {
 		
 		fac = new FactoryBase();
-		
-		dzn_full = IntStream.range(1, 26).toArray();
 	}
 	
 	
 	private void ultimoSorteio(){
 		
 		System.out.println("Ultimo Sorteio: " + this.fac.getLastSorteio());
-		System.out.println("####################");
+		System.out.println("####################\n");
 			
 	}
 	
@@ -56,7 +52,7 @@ public class Analise {
 		
 		System.out.println("Pares: " + pares + " -> " + pares.size());
 		System.out.println("Impares: " + impares + " -> " + impares.size());
-		System.out.println("####################");
+		System.out.println("####################\n");
 		
 	}
 	
@@ -108,11 +104,13 @@ public class Analise {
 		System.out.println("Linha 3 - " + sortL3);
 		System.out.println("Linha 4 - " + sortL4);
 		System.out.println("Linha 5 - " + sortL5);
-		System.out.println("####################");
+		System.out.println("####################\n");
 		
 	}
 	
 	public void analiseMaximoSalto() {
+		
+		//TODO Pegar o intervalo do salto
 		
 		Integer[] arr = fac.getDezenas(fac.getLastSorteio()).toArray(new Integer[0]);
 		
@@ -125,28 +123,35 @@ public class Analise {
 		
 		
 		System.out.println("Máximo salto: " + --salto);
-		System.out.println("####################");
+		System.out.println("####################\n");
 	}
 	
 	public void analiseMaximoSucessivas() {
 	
 		Integer[] arr = fac.getDezenas(fac.getLastSorteio()).toArray(new Integer[0]);
 		
-		int sucessivas = 0;
+		List<Integer> listSucessivas = new ArrayList<Integer>();
+		
 		for (int i=0; i < arr.length-1; i++) {
 			
+			int sucessivas = 1;
 			int inicial = arr[i];
 			int contador = 1;
+			int posicaoSeguinte = i+1;
 			boolean continua = true;
 			
 			while (continua) {
 				
-				if (inicial+contador == arr[contador]) {
+				if (inicial+contador == arr[posicaoSeguinte]) {
 					sucessivas++;
 					contador++;
+					
+					if (posicaoSeguinte < arr.length-1)
+						posicaoSeguinte++;
+				
 				}else {
 					continua = false;
-					System.out.println(sucessivas);
+					listSucessivas.add(sucessivas);
 					continue;
 				}
 				
@@ -154,8 +159,8 @@ public class Analise {
 		}
 		
 		
-		System.out.println("Máximo sucessivas: " + sucessivas);
-		System.out.println("####################");
+		System.out.println("Máximo sucessivas: " + Collections.max(listSucessivas));
+		System.out.println("####################\n");
 	}
 	
 }

@@ -59,15 +59,15 @@ public class FactoryBaseTest {
 	@Test
 	public void getDezenas() {
 		
-//		System.out.println("###### getDezenas ######");
-//		
-//		Sorteio sorteio = fac.getSorteio(1745);
-//		
-//		List<Integer> dezenas = fac.getDezenas(sorteio);
-//		
-//		System.out.println(dezenas.toArray());
-//		
-//		Assert.assertEquals(sorteio.getBola5(), dezenas.get(4));
+		System.out.println("###### getDezenas ######");
+		
+		Sorteio sorteio = fac.getSorteio(1745);
+		
+		List<Integer> dezenas = fac.getDezenas(sorteio);
+		
+		System.out.println(dezenas);
+		
+		Assert.assertEquals(sorteio.getBola5(), dezenas.get(4));
 	}
 	
 	
