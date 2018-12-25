@@ -40,6 +40,7 @@ public class BaixaArquivos {
 	private void deletarArquivos() {
 		
 		File file = new File(FactoryArquivos.getPathBase());
+		file.mkdir();
 		
 		for (File arq : file.listFiles()) {
 			if (arq.isFile() && !(arq.getName().endsWith(".properties"))) {
