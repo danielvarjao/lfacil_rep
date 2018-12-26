@@ -3,3 +3,4 @@
 1-Criar análises em lote
 2-Criar package lfacil.analise.fechamentos
 3-Criar um fechamento igual da planilha lotofacil
+4-Teste PC
