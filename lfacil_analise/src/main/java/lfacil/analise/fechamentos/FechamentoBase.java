@@ -10,7 +10,7 @@ public abstract class FechamentoBase {
 	protected List<Integer> dezenas;
 	
 	//Abstract Methods
-	public abstract void gerarFechamentos();
+	public abstract void gerarFechamentos(CriterioFechamento criterio);
 	
 	
 	public void gerarDezenas(CriterioFechamento criterio) {
