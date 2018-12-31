@@ -1,6 +1,6 @@
 #Desenvolvimento
 
 1-Criar análises em lote
-2-Criar package lfacil.analise.fechamentos
+2-Criar package lfacil.analise.fechamentos 				- OK
 3-Criar um fechamento igual da planilha lotofacil
-4-Teste PC
+4-Factory Criterios Fechamento 							- OK

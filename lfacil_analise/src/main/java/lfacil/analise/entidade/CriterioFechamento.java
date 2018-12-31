@@ -13,15 +13,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CriterioFechamento {
 	
-	private int qtdDezenas;
-	private int qtdJogos;
-	private int qtdDezenasAposta;
-	private int qtdDezenasPares;
-	private int qtdDezenasImpares;
+	private Integer qtdDezenas;
+	private Integer qtdJogos;
+	private Integer qtdDezenasAposta;
+	private Integer qtdDezenasPares;
+	private Integer qtdDezenasImpares;
 	private boolean gerarDezenasRandom;
 	private List<Integer> dezenasExcluidas;
-	private int maximoSalto;
-	private int maximoSucessivas;
+	private Integer maximoSalto;
+	private Integer maximoSucessivas;
 	private Integer qtdLinha1;
 	private Integer qtdLinha2;
 	private Integer qtdLinha3;

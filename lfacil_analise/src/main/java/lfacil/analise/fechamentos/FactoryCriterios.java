@@ -1,14 +1,16 @@
 package lfacil.analise.fechamentos;
 
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import lfacil.analise.entidade.CriterioAnalise;
 import lfacil.analise.entidade.CriterioFechamento;
 
 public class FactoryCriterios {
 	
 	static ResourceBundle res = ResourceBundle.getBundle("criterios");
 	
-	public static CriterioFechamento getCriterios() {
+	public static CriterioFechamento getCriteriosFechamento() {
 		
 		CriterioFechamento crit = CriterioFechamento.builder()
 				.qtdDezenas(Integer.parseInt(res.getString("qtdDezenas")))
@@ -17,11 +19,22 @@ public class FactoryCriterios {
 				.qtdDezenasPares(Integer.parseInt(res.getString("qtdDezenasPares")))
 				.qtdDezenasImpares(Integer.parseInt(res.getString("qtdDezenasImpares")))
 				.gerarDezenasRandom(gerarDezenasRandom(res.getString("gerarDezenasRandom")))
+				.dezenasExcluidas(new ArrayList<Integer>())
 				.build();
 		
 		setDezenasExcluidas(crit);
 		setQuantidadePorLinha(crit);
 		setMaximos(crit);
+		
+		return crit;
+	}
+	
+	public static CriterioAnalise getCriteriosAnalise() {
+		
+		CriterioAnalise crit = CriterioAnalise.builder()
+				.analiseUltimoSorteio(res.getString("analiseUltimoSorteio").equalsIgnoreCase("S") ? true : false)
+				//.analiseUltimosN(analiseUltimosN)
+				.build();
 		
 		return crit;
 	}
@@ -34,7 +47,13 @@ public class FactoryCriterios {
 	
 	
 	private static void setDezenasExcluidas(CriterioFechamento crit) {
-		// TODO Auto-generated method stub
+
+		String strExcluidas = res.getString("dezenasExcluidas");
+		String[] excluidas = strExcluidas.isEmpty() ? null : strExcluidas.split(",");
+		
+		for (String exc : excluidas) {
+			crit.getDezenasExcluidas().add(Integer.parseInt(exc));
+		}
 		
 	}
 
@@ -50,9 +69,9 @@ public class FactoryCriterios {
 	}
 	
 	private static void setMaximos(CriterioFechamento crit) {
-		// maximoSalto=
-		// maximoSucessivas=
-		
+				
+		crit.setMaximoSalto(res.getString("maximoSalto").isEmpty() ? null : Integer.parseInt(res.getString("maximoSalto")));
+		crit.setMaximoSucessivas(res.getString("maximoSucessivas").isEmpty() ? null : Integer.parseInt(res.getString("maximoSucessivas")));
 	}
 
 }

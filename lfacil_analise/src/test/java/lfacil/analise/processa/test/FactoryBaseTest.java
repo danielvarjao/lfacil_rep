@@ -1,4 +1,4 @@
-package lfacil.analise.entidade.test;
+package lfacil.analise.processa.test;
 
 import java.util.List;
 

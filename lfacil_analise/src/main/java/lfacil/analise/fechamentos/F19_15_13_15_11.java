@@ -12,7 +12,7 @@ public class F19_15_13_15_11 extends FechamentoBase {
 	
 	public static void main(String[] args) {
 		
-		CriterioFechamento criterio = FactoryCriterios.getCriterios();
+		CriterioFechamento criterio = FactoryCriterios.getCriteriosFechamento();
 
 		FechamentoBase fech = new F19_15_13_15_11();
 		fech.gerarDezenas(criterio);

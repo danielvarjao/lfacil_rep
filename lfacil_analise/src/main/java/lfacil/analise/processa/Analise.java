@@ -6,6 +6,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import lfacil.analise.entidade.CriterioAnalise;
+import lfacil.analise.fechamentos.FactoryCriterios;
+
 public class Analise {
 	
 	FactoryBase fac;
@@ -14,8 +17,10 @@ public class Analise {
 
 	public static void main(String[] args) {
 		
+		CriterioAnalise criterio = FactoryCriterios.getCriteriosAnalise();
+		
 		Analise anl = new Analise();
-				
+						
 		anl.ultimoSorteio();		
 		anl.analiseParImpar();
 		anl.analiseLinhas();
