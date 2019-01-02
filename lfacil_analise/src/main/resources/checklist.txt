@@ -1,6 +1,13 @@
 #Desenvolvimento
 
-1-Criar análises em lote
+1-Criar análises em lote								- OK
 2-Criar package lfacil.analise.fechamentos 				- OK
 3-Criar um fechamento igual da planilha lotofacil
 4-Factory Criterios Fechamento 							- OK
+5-Gerar Dezenas de acordo com critério (Excluidas) 		- OK
+ -Gerar Dezenas de acordo com critério (Par Impar)
+ -Gerar Dezenas de acordo com critério (Salto)
+ -Gerar Dezenas de acordo com critério (Sucessivas)
+ -Gerar Dezenas de acordo com critério (Linhas)
+ 
+ 

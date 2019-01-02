@@ -1,7 +1,9 @@
 package lfacil.analise.fechamentos;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import lfacil.analise.entidade.CriterioFechamento;
 
@@ -41,8 +43,26 @@ public abstract class FechamentoBase {
 		
 		//
 		
+		System.out.println("Dezenas 1 -> " + this.dezenas);
 		
-		System.out.println("Dezenas -> " + this.dezenas);
+		dezenas.clear(); /************/
+		Random random = new Random();
+		
+		while(dezenas.size() < criterio.getQtdDezenas()) {
+			
+			int numero = random.nextInt(25) + 1;
+			
+			if (dezenas.contains(numero) || criterio.getDezenasExcluidas().contains(numero)) {
+				continue;
+			}
+			
+			dezenas.add(numero);
+			
+		}
+		
+		Collections.sort(dezenas);
+		
+		System.out.println("Dezenas 2 -> " + this.dezenas);
 	}
 	
 
