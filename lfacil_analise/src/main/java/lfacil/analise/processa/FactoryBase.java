@@ -111,7 +111,9 @@ public class FactoryBase {
 		
 		System.out.println("Sorteio: " + sorteio);
 		
-		if (separador)
-			System.out.println("####################\n");
+		if (separador){
+			//System.out.println("####################\n");
+			System.out.println();
+		}
 	}
 }

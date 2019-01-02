@@ -20,12 +20,8 @@ public class Analise {
 	public static void main(String[] args) {
 		
 		Analise anl = new Analise();
-						
-		anl.ultimoSorteio();		
-		anl.analiseParImpar();
-		anl.analiseLinhas();
-		anl.analiseMaximoSalto();
-		anl.analiseMaximoSucessivas();
+		anl.exec();
+
 	}
 	
 	public Analise() {
@@ -36,42 +32,43 @@ public class Analise {
 		
 	}
 	
-	
-	private void ultimoSorteio(){
-		
-		if (this.criterio.isAnaliseUltimoSorteio()) {
-			
-			System.out.println("Ultimo Sorteio: " + this.fac.getLastSorteio());
-			System.out.println("####################\n");
-		}
-			
-	}
-	
-	public void analiseParImpar(){
-		
-		List<Integer> pares = new ArrayList<Integer>();
-		List<Integer> impares = new ArrayList<Integer>();
+	private void exec(){
 		
 		for (Sorteio sorteio : fac.getLastNSorteios(this.criterio.getAnaliseUltimosN())){
 			
-			for (int n : fac.getDezenas(sorteio)){
-				
-				if (n % 2 == 0){
-					pares.add(n);
-				}else{
-					impares.add(n);
-				}
-			}
-			
-			fac.imprimirSorteio(sorteio, false);
-			System.out.println("Pares: " + pares + " -> " + pares.size());
-			System.out.println("Impares: " + impares + " -> " + impares.size());
+			analiseParImpar(sorteio);
+			analiseLinhas(sorteio);
+			analiseMaximoSalto(sorteio);
+			analiseMaximoSucessivas(sorteio);
 			System.out.println("####################\n");
-			
-			pares.clear();
-			impares.clear();
-			
 		}
+		
+	}
+	
+	
+	public void analiseParImpar(Sorteio sorteio){
+		
+		List<Integer> pares = new ArrayList<Integer>();
+		List<Integer> impares = new ArrayList<Integer>();
+			
+		for (int n : fac.getDezenas(sorteio)){
+
+			if (n % 2 == 0){
+				pares.add(n);
+			}else{
+				impares.add(n);
+			}
+		}
+
+		fac.imprimirSorteio(sorteio, true);
+		System.out.println("Pares: " + pares + " -> " + pares.size());
+		System.out.println("Impares: " + impares + " -> " + impares.size());
+		System.out.println();
+
+		pares.clear();
+		impares.clear();
+			
+		
 			
 //		for (int n : fac.getDezenas(fac.getLastSorteio())){
 //			
@@ -81,14 +78,14 @@ public class Analise {
 //				impares.add(n);
 //			}
 //		}
-		
+//		
 //		System.out.println("Pares: " + pares + " -> " + pares.size());
 //		System.out.println("Impares: " + impares + " -> " + impares.size());
 //		System.out.println("####################\n");
 		
 	}
 	
-	private void analiseLinhas(){
+	public void analiseLinhas(Sorteio sorteio){
 		
 		List<Integer> linha1 = Arrays.asList(new Integer[] {1,2,3,4,5});
 		List<Integer> linha2 = Arrays.asList(new Integer[] {6,7,8,9,10});
@@ -102,7 +99,7 @@ public class Analise {
 		List<Integer> sortL4 = new ArrayList<Integer>();
 		List<Integer> sortL5 = new ArrayList<Integer>();
 		
-		for (int n : fac.getDezenas(fac.getLastSorteio())){
+		for (int n : fac.getDezenas(sorteio)){
 			
 			if (linha1.contains(n)){
 				sortL1.add(n);
@@ -136,15 +133,15 @@ public class Analise {
 		System.out.println("Linha 3 - " + sortL3);
 		System.out.println("Linha 4 - " + sortL4);
 		System.out.println("Linha 5 - " + sortL5);
-		System.out.println("####################\n");
+		System.out.println();
 		
 	}
 	
-	public void analiseMaximoSalto() {
+	public void analiseMaximoSalto(Sorteio sorteio) {
 		
 		//TODO Pegar o intervalo do salto
 		
-		Integer[] arr = fac.getDezenas(fac.getLastSorteio()).toArray(new Integer[0]);
+		Integer[] arr = fac.getDezenas(sorteio).toArray(new Integer[0]);
 		
 		int salto = 0;
 		for (int i=0, j=1; i < arr.length-1; i++, j++) {
@@ -155,12 +152,11 @@ public class Analise {
 		
 		
 		System.out.println("Máximo salto: " + --salto);
-		System.out.println("####################\n");
 	}
 	
-	public void analiseMaximoSucessivas() {
+	public void analiseMaximoSucessivas(Sorteio sorteio) {
 	
-		Integer[] arr = fac.getDezenas(fac.getLastSorteio()).toArray(new Integer[0]);
+		Integer[] arr = fac.getDezenas(sorteio).toArray(new Integer[0]);
 		
 		List<Integer> listSucessivas = new ArrayList<Integer>();
 		
@@ -192,7 +188,7 @@ public class Analise {
 		
 		
 		System.out.println("Máximo sucessivas: " + Collections.max(listSucessivas));
-		System.out.println("####################\n");
+		
 	}
 	
 }
