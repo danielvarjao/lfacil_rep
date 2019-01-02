@@ -106,4 +106,12 @@ public class FactoryBase {
 		
 		return ret;
 	}
+	
+	public void imprimirSorteio(Sorteio sorteio, boolean separador) {
+		
+		System.out.println("Sorteio: " + sorteio);
+		
+		if (separador)
+			System.out.println("####################\n");
+	}
 }

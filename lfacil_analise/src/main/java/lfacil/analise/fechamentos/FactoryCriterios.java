@@ -33,7 +33,7 @@ public class FactoryCriterios {
 		
 		CriterioAnalise crit = CriterioAnalise.builder()
 				.analiseUltimoSorteio(res.getString("analiseUltimoSorteio").equalsIgnoreCase("S") ? true : false)
-				//.analiseUltimosN(analiseUltimosN)
+				.analiseUltimosN(Integer.parseInt(res.getString("analiseUltimosN")))
 				.build();
 		
 		return crit;

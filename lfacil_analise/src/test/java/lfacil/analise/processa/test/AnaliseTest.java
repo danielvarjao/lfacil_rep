@@ -8,6 +8,13 @@ import lfacil.analise.processa.Analise;
 import lfacil.analise.processa.FactoryBase;
 
 public class AnaliseTest {
+	
+	@Test
+	public void analiseParImpar() {
+		
+		Analise anl = new Analise();
+		anl.analiseParImpar();
+	}
 
 	@Test
 	public void analiseMaximoSalto() {

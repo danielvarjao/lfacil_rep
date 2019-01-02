@@ -70,7 +70,12 @@ public class FactoryBaseTest {
 		Assert.assertEquals(sorteio.getBola5(), dezenas.get(4));
 	}
 	
-	
+	@Test
+	public void imprimirSorteio() {
+		
+		Sorteio sorteio = fac.getSorteio(1745);
+		fac.imprimirSorteio(sorteio, true);
+	}
 	
 	
 	

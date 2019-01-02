@@ -7,17 +7,17 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import lfacil.analise.entidade.CriterioAnalise;
+import lfacil.analise.entidade.Sorteio;
 import lfacil.analise.fechamentos.FactoryCriterios;
 
 public class Analise {
 	
 	FactoryBase fac;
+	CriterioAnalise criterio;
 	
 	int[] dzn_full = IntStream.range(1, 26).toArray();
 
 	public static void main(String[] args) {
-		
-		CriterioAnalise criterio = FactoryCriterios.getCriteriosAnalise();
 		
 		Analise anl = new Analise();
 						
@@ -30,34 +30,61 @@ public class Analise {
 	
 	public Analise() {
 		
+		criterio = FactoryCriterios.getCriteriosAnalise();
+		
 		fac = new FactoryBase();
+		
 	}
 	
 	
 	private void ultimoSorteio(){
 		
-		System.out.println("Ultimo Sorteio: " + this.fac.getLastSorteio());
-		System.out.println("####################\n");
+		if (this.criterio.isAnaliseUltimoSorteio()) {
+			
+			System.out.println("Ultimo Sorteio: " + this.fac.getLastSorteio());
+			System.out.println("####################\n");
+		}
 			
 	}
 	
-	private void analiseParImpar(){
+	public void analiseParImpar(){
 		
 		List<Integer> pares = new ArrayList<Integer>();
 		List<Integer> impares = new ArrayList<Integer>();
-			
-		for (int n : fac.getDezenas(fac.getLastSorteio())){
-			
-			if (n % 2 == 0){
-				pares.add(n);
-			}else{
-				impares.add(n);
-			}
-		}
 		
-		System.out.println("Pares: " + pares + " -> " + pares.size());
-		System.out.println("Impares: " + impares + " -> " + impares.size());
-		System.out.println("####################\n");
+		for (Sorteio sorteio : fac.getLastNSorteios(this.criterio.getAnaliseUltimosN())){
+			
+			for (int n : fac.getDezenas(sorteio)){
+				
+				if (n % 2 == 0){
+					pares.add(n);
+				}else{
+					impares.add(n);
+				}
+			}
+			
+			fac.imprimirSorteio(sorteio, false);
+			System.out.println("Pares: " + pares + " -> " + pares.size());
+			System.out.println("Impares: " + impares + " -> " + impares.size());
+			System.out.println("####################\n");
+			
+			pares.clear();
+			impares.clear();
+			
+		}
+			
+//		for (int n : fac.getDezenas(fac.getLastSorteio())){
+//			
+//			if (n % 2 == 0){
+//				pares.add(n);
+//			}else{
+//				impares.add(n);
+//			}
+//		}
+		
+//		System.out.println("Pares: " + pares + " -> " + pares.size());
+//		System.out.println("Impares: " + impares + " -> " + impares.size());
+//		System.out.println("####################\n");
 		
 	}
 	
