@@ -49,7 +49,7 @@ public class FactoryCriterios {
 	private static void setDezenasExcluidas(CriterioFechamento crit) {
 
 		String strExcluidas = res.getString("dezenasExcluidas");
-		String[] excluidas = strExcluidas.isEmpty() ? null : strExcluidas.split(",");
+		String[] excluidas = strExcluidas.isEmpty() ? new String[0] : strExcluidas.split(",");
 		
 		for (String exc : excluidas) {
 			crit.getDezenasExcluidas().add(Integer.parseInt(exc));
