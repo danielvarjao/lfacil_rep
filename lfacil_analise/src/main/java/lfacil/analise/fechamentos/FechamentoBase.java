@@ -31,7 +31,7 @@ public abstract class FechamentoBase {
 			
 		}
 		
-		System.out.println("Dezenas 2 -> " + dezenas);
+		System.out.println("Dezenas -> " + dezenas);
 	}
 	
 
