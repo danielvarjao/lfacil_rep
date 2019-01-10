@@ -26,10 +26,10 @@ public class GeradorFechamentos extends FechamentoBase {
 		
 		List<Integer> dezenasDisponiveis = new ArrayList<>(dezenas);
 
-		TreeSet<TreeSet<Integer>> fechamentos = new TreeSet<>();
+		List<TreeSet<Integer>> fechamentos = new ArrayList<>();
 		
 		Random random = new Random();
-		TreeSet<Integer> dezenas = new TreeSet<Integer>();
+		
 		
 		for (int i=0; i < criterio.getQtdJogos(); i++) {
 			
@@ -42,11 +42,20 @@ public class GeradorFechamentos extends FechamentoBase {
 				
 			}
 			
-			fechamentos.add(listAtual);
+			if (!fechamentos.contains(listAtual)) {
+				fechamentos.add(listAtual);
+			}
+			else {
+				System.out.println("REPETIDO");
+			}
 			
 		}
 		
-		System.out.println(fechamentos);
+		System.out.println("Fechamentos gerados: ");
+		
+		for (TreeSet<Integer> tree : fechamentos) {
+			System.out.println(tree);
+		}
 
 	}
 
