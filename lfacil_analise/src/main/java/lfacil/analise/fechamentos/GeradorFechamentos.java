@@ -16,8 +16,9 @@ public class GeradorFechamentos extends FechamentoBase {
 
 		FechamentoBase fech = new GeradorFechamentos();
 		fech.gerarDezenas(criterio);
+		fech.gerarNumeroCombinacoes(criterio);
 		fech.gerarFechamentos(criterio);
-
+		
 	}
 	
 

@@ -3,6 +3,10 @@ package lfacil.analise.fechamentos;
 import java.util.Random;
 import java.util.TreeSet;
 
+import org.apache.commons.math3.util.Combinations;
+import org.apache.commons.math3.util.CombinatoricsUtils;
+import org.apache.commons.math3.util.MathUtils;
+
 import lfacil.analise.entidade.CriterioFechamento;
 
 public abstract class FechamentoBase {
@@ -32,6 +36,19 @@ public abstract class FechamentoBase {
 		}
 		
 		System.out.println("Dezenas -> " + dezenas);
+	}
+
+
+	public void gerarNumeroCombinacoes(CriterioFechamento criterio) {
+		
+		Integer numeroObjetos = criterio.getQtdDezenas();
+		Integer posicoes = criterio.getQtdDezenasAposta();
+
+		Long ret = CombinatoricsUtils.binomialCoefficient(numeroObjetos, posicoes);
+				
+		System.out.println("Combinacoes Possiveis: -> " + ret);
+		
+		
 	}
 	
 
