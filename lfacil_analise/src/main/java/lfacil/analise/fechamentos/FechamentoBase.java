@@ -1,14 +1,11 @@
 package lfacil.analise.fechamentos;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.TreeSet;
 
-import org.apache.commons.math3.util.Combinations;
 import org.apache.commons.math3.util.CombinatoricsUtils;
-import org.apache.commons.math3.util.MathUtils;
 
 import lfacil.analise.entidade.CriterioFechamento;
 
@@ -18,6 +15,17 @@ public abstract class FechamentoBase {
 	
 	//Abstract Methods
 	public abstract void gerarFechamentos(CriterioFechamento criterio);
+		
+	
+	public void validarCondicaoInicial(CriterioFechamento criterio) throws Exception {
+
+		if (criterio.getQtdDezenasAposta() > criterio.getQtdDezenas()) {
+			throw new Exception("Quantidade de Dezenas para sorteio menor que quantidade de Dezenas por Aposta");
+		}
+		
+		//Validar QTD Pares Impares nas dezenas sorteadas
+
+	}
 	
 	
 	public void gerarDezenas(CriterioFechamento criterio) {
@@ -51,8 +59,8 @@ public abstract class FechamentoBase {
 				
 		System.out.println("Combinacoes Possiveis: -> " + ret);
 		
-		
 	}
+	
 	
 	public void imprimirFechamento(List<TreeSet<Integer>> fechamentos) {
 		

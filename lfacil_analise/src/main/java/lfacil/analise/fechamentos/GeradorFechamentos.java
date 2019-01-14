@@ -14,18 +14,25 @@ public class GeradorFechamentos extends FechamentoBase {
 		
 		CriterioFechamento criterio = FactoryCriterios.getCriteriosFechamento();
 
-		FechamentoBase fech = new GeradorFechamentos();
-		fech.gerarDezenas(criterio);
-		fech.gerarNumeroCombinacoes(criterio);
-		fech.gerarFechamentos(criterio);
+		try {
+
+			FechamentoBase fech = new GeradorFechamentos();
+			fech.gerarDezenas(criterio);
+			
+			fech.validarCondicaoInicial(criterio);
+			
+			fech.gerarNumeroCombinacoes(criterio);
+			fech.gerarFechamentos(criterio);
+			
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 	}
 	
 
 	@Override
 	public void gerarFechamentos(CriterioFechamento criterio) {
-		
-		validarCondicaoInicial();
 		
 		List<Integer> dezenasDisponiveis = new ArrayList<>(dezenas);
 
@@ -60,15 +67,9 @@ public class GeradorFechamentos extends FechamentoBase {
 	}
 
 
-	private void validarCondicaoInicial() {
-		
-		
-	}
-
-
 	private boolean validaParImpar(TreeSet<Integer> listAtual) {
 		
-		return false;
+		return true;
 	}
 
 	
