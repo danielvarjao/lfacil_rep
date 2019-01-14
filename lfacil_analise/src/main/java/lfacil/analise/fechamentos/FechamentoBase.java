@@ -1,5 +1,8 @@
 package lfacil.analise.fechamentos;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.TreeSet;
 
@@ -48,6 +51,23 @@ public abstract class FechamentoBase {
 				
 		System.out.println("Combinacoes Possiveis: -> " + ret);
 		
+		
+	}
+	
+	public void imprimirFechamento(List<TreeSet<Integer>> fechamentos) {
+		
+		System.out.println("Fechamentos gerados: ");
+		
+		for (TreeSet<Integer> tree : fechamentos) {
+			
+			List<String> fechFormat = new ArrayList<>();
+			
+			for (Integer num : tree) {
+				fechFormat.add(String.format("%02d", num));
+			}
+			
+			System.out.println(fechFormat);
+		}
 		
 	}
 	

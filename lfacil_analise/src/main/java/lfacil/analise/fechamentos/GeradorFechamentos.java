@@ -25,6 +25,8 @@ public class GeradorFechamentos extends FechamentoBase {
 	@Override
 	public void gerarFechamentos(CriterioFechamento criterio) {
 		
+		validarCondicaoInicial();
+		
 		List<Integer> dezenasDisponiveis = new ArrayList<>(dezenas);
 
 		List<TreeSet<Integer>> fechamentos = new ArrayList<>();
@@ -43,7 +45,7 @@ public class GeradorFechamentos extends FechamentoBase {
 				
 			}
 			
-			if (!fechamentos.contains(listAtual)) {
+			if (!fechamentos.contains(listAtual) && validaParImpar(listAtual)) {
 				fechamentos.add(listAtual);
 			}
 			else {
@@ -52,12 +54,21 @@ public class GeradorFechamentos extends FechamentoBase {
 			
 		}
 		
-		System.out.println("Fechamentos gerados: ");
-		
-		for (TreeSet<Integer> tree : fechamentos) {
-			System.out.println(tree);
-		}
+				
+		imprimirFechamento(fechamentos);
 
+	}
+
+
+	private void validarCondicaoInicial() {
+		
+		
+	}
+
+
+	private boolean validaParImpar(TreeSet<Integer> listAtual) {
+		
+		return false;
 	}
 
 	
