@@ -47,6 +47,7 @@ public abstract class FechamentoBase {
 		}
 		
 		System.out.println("Dezenas -> " + dezenas);
+		imprimirRelacaoParImpar(new ArrayList<Integer>(dezenas));
 	}
 
 
@@ -66,17 +67,35 @@ public abstract class FechamentoBase {
 		
 		System.out.println("Fechamentos gerados: ");
 		
-		for (TreeSet<Integer> tree : fechamentos) {
+		for (TreeSet<Integer> fechamento : fechamentos) {
 			
 			List<String> fechFormat = new ArrayList<>();
 			
-			for (Integer num : tree) {
+			for (Integer num : fechamento) {
 				fechFormat.add(String.format("%02d", num));
 			}
 			
-			System.out.println(fechFormat);
+			System.out.print(fechFormat + " ");
+			imprimirRelacaoParImpar(new ArrayList<Integer>(fechamento));
 		}
 		
+	}
+	
+	public void imprimirRelacaoParImpar(List<Integer> dezenas) {
+		
+		List<Integer> pares = new ArrayList<Integer>();
+		List<Integer> impares = new ArrayList<Integer>();
+		
+		for (int n : dezenas){
+
+			if (n % 2 == 0){
+				pares.add(n);
+			}else{
+				impares.add(n);
+			}
+		}
+		
+		System.out.println("Pares: -> " + pares.size() + " Impares: -> " + impares.size());
 	}
 	
 

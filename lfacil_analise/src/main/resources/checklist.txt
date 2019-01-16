@@ -11,4 +11,6 @@
  -Gerar Fechamento de acordo com critério (Sucessivas)
  -Gerar Fechamento de acordo com critério (Linhas)
  
- 
+#Melhoria
+-Centralizar em um único ponto analise de par/impar (Analise.java, FechamentoBase.java)
+-Ver criterio de utilizar relacao par/impar quando random
