@@ -98,6 +98,7 @@ public class Analise {
 		List<Integer> sortL3 = new ArrayList<Integer>();
 		List<Integer> sortL4 = new ArrayList<Integer>();
 		List<Integer> sortL5 = new ArrayList<Integer>();
+		List<Integer> ausentes = new ArrayList<Integer>();
 		
 		for (int n : fac.getDezenas(sorteio)){
 			
@@ -125,6 +126,7 @@ public class Analise {
 				sortL5.add(n);
 				continue;
 			}
+			
 
 		}
 		
@@ -133,6 +135,7 @@ public class Analise {
 		System.out.println("Linha 3 - " + sortL3);
 		System.out.println("Linha 4 - " + sortL4);
 		System.out.println("Linha 5 - " + sortL5);
+		System.out.println("Ausentes -> ");
 		System.out.println();
 		
 	}

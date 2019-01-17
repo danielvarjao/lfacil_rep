@@ -8,6 +8,7 @@ import java.util.TreeSet;
 import org.apache.commons.math3.util.CombinatoricsUtils;
 
 import lfacil.analise.entidade.CriterioFechamento;
+import lfacil.analise.utils.LfacilUtils;
 
 public abstract class FechamentoBase {
 	
@@ -83,19 +84,7 @@ public abstract class FechamentoBase {
 	
 	public void imprimirRelacaoParImpar(List<Integer> dezenas) {
 		
-		List<Integer> pares = new ArrayList<Integer>();
-		List<Integer> impares = new ArrayList<Integer>();
-		
-		for (int n : dezenas){
-
-			if (n % 2 == 0){
-				pares.add(n);
-			}else{
-				impares.add(n);
-			}
-		}
-		
-		System.out.println("Pares: -> " + pares.size() + " Impares: -> " + impares.size());
+		System.out.println("Pares: -> " + LfacilUtils.getQtdPares(dezenas) + " Impares: -> " + LfacilUtils.getQtdImpares(dezenas));
 	}
 	
 

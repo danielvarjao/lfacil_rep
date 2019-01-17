@@ -22,4 +22,30 @@ public class LfacilUtils {
 		System.out.print(fechFormat + " ");
 	}
 	
+	public static Integer getQtdPares(List<Integer> dezenas) {
+
+		int pares = 0;
+		for (int n : dezenas){
+
+			if (n % 2 == 0){
+				pares++;
+			}
+		}
+		
+		return pares;
+	}
+
+	public static Integer getQtdImpares(List<Integer> dezenas) {
+
+		int impares = 0;
+		for (int n : dezenas){
+
+			if (n % 2 != 0){
+				impares++;
+			}
+		}
+		
+		return impares;
+	}
+	
 }

@@ -44,7 +44,7 @@ public class GeradorFechamentos extends FechamentoBase {
 		for (int i=0; i < criterio.getQtdJogos(); i++) {
 			
 			TreeSet<Integer> listAtual = new TreeSet<>();
-			while (listAtual.size() <= criterio.getQtdDezenasAposta()) {
+			while (listAtual.size() < criterio.getQtdDezenasAposta()) {
 				
 				int numero = dezenasDisponiveis.get(random.nextInt(dezenasDisponiveis.size()));
 				
