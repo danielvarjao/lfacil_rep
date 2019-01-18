@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.TreeSet;
 
+import javax.swing.text.Utilities;
+
 import lfacil.analise.entidade.CriterioFechamento;
+import lfacil.analise.utils.LfacilUtils;
 
 public class GeradorFechamentos extends FechamentoBase {
 	
@@ -52,7 +55,7 @@ public class GeradorFechamentos extends FechamentoBase {
 				
 			}
 			
-			if (!fechamentos.contains(listAtual) && validaParImpar(listAtual)) {
+			if (!fechamentos.contains(listAtual) && validaParImpar(listAtual, criterio)) {
 				fechamentos.add(listAtual);
 			}
 			else {
@@ -67,9 +70,15 @@ public class GeradorFechamentos extends FechamentoBase {
 	}
 
 
-	private boolean validaParImpar(TreeSet<Integer> listAtual) {
+	private boolean validaParImpar(TreeSet<Integer> listAtual, CriterioFechamento criterio) {
 		
-		return true;
+		int qtdPares = LfacilUtils.getQtdPares(new ArrayList<Integer>(listAtual));
+		int qtdImpares = LfacilUtils.getQtdImpares(new ArrayList<Integer>(listAtual));
+		
+		if (qtdPares == criterio.getQtdDezenasPares() && qtdImpares == criterio.getQtdDezenasImpares())
+			return true;
+		else
+			return false;
 	}
 
 	
