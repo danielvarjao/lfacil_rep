@@ -38,6 +38,7 @@ public class Analise {
 			
 			analiseParImpar(sorteio);
 			analiseLinhas(sorteio);
+			analiseAusentes(sorteio);
 			analiseMaximoSalto(sorteio);
 			analiseMaximoSucessivas(sorteio);
 			System.out.println("####################\n");
@@ -69,20 +70,6 @@ public class Analise {
 		impares.clear();
 			
 		
-			
-//		for (int n : fac.getDezenas(fac.getLastSorteio())){
-//			
-//			if (n % 2 == 0){
-//				pares.add(n);
-//			}else{
-//				impares.add(n);
-//			}
-//		}
-//		
-//		System.out.println("Pares: " + pares + " -> " + pares.size());
-//		System.out.println("Impares: " + impares + " -> " + impares.size());
-//		System.out.println("####################\n");
-		
 	}
 	
 	public void analiseLinhas(Sorteio sorteio){
@@ -98,7 +85,7 @@ public class Analise {
 		List<Integer> sortL3 = new ArrayList<Integer>();
 		List<Integer> sortL4 = new ArrayList<Integer>();
 		List<Integer> sortL5 = new ArrayList<Integer>();
-		List<Integer> ausentes = new ArrayList<Integer>();
+		
 		
 		for (int n : fac.getDezenas(sorteio)){
 			
@@ -127,7 +114,6 @@ public class Analise {
 				continue;
 			}
 			
-
 		}
 		
 		System.out.println("Linha 1 - " + sortL1);
@@ -135,9 +121,23 @@ public class Analise {
 		System.out.println("Linha 3 - " + sortL3);
 		System.out.println("Linha 4 - " + sortL4);
 		System.out.println("Linha 5 - " + sortL5);
-		System.out.println("Ausentes -> ");
 		System.out.println();
 		
+	}
+	
+	public void analiseAusentes(Sorteio sorteio) {
+		
+		List<Integer> ausentes = new ArrayList<Integer>();
+		
+		for (int i=1; i<=25; i++) {
+			
+			if (!sorteio.getListSorteadas().contains(i)) {
+				ausentes.add(i);
+			}
+		}
+		
+		System.out.println("Ausentes -> " + ausentes);
+		System.out.println();
 	}
 	
 	public void analiseMaximoSalto(Sorteio sorteio) {

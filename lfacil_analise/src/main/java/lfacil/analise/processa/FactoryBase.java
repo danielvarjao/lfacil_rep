@@ -53,6 +53,11 @@ public class FactoryBase {
 				sort.setBola15(linha[15]);
 						
 				base.add(sort);
+				
+				for (int i = 1; i<=15; i++) {
+					sort.getListSorteadas().add(Integer.parseInt(linha[i]));
+				}
+				
 
 			}
 		}

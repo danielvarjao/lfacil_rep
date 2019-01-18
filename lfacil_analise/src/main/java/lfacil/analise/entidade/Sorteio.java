@@ -1,13 +1,13 @@
 package lfacil.analise.entidade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.NoArgsConstructor;
 
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class Sorteio implements Serializable{
 	
@@ -32,6 +32,12 @@ public class Sorteio implements Serializable{
 	private Integer bola13;
 	private Integer bola14;
 	private Integer bola15;
+	private List<Integer> listSorteadas;
+	
+	public Sorteio() {
+		
+		this.listSorteadas = new ArrayList<Integer>();
+	}
 	
 	
 	public void sort() {
@@ -209,6 +215,14 @@ public class Sorteio implements Serializable{
 
 	public void setBola15(String bola15) {
 		this.bola15 = Integer.parseInt(bola15);
+	}
+
+	public List<Integer> getListSorteadas() {
+		return listSorteadas;
+	}
+
+	public void setListSorteadas(List<Integer> listSorteadas) {
+		this.listSorteadas = listSorteadas;
 	}
 
 }
