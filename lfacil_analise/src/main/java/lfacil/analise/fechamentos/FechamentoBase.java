@@ -13,7 +13,9 @@ import lfacil.analise.utils.LfacilUtils;
 public abstract class FechamentoBase {
 	
 	protected TreeSet<Integer> dezenas;
+	protected Long combParImpar;
 	
+
 	//Abstract Methods
 	public abstract void gerarFechamentos(CriterioFechamento criterio);
 		
@@ -25,6 +27,14 @@ public abstract class FechamentoBase {
 		}
 		
 		//Validar QTD Pares Impares nas dezenas sorteadas
+		int qtdImparDezenasSelec = LfacilUtils.getQtdImpares(this.dezenas);
+		int qtdParesDezenasSelec = LfacilUtils.getQtdPares(this.dezenas);
+		
+		if (qtdImparDezenasSelec < criterio.getQtdDezenasImpares() 
+				|| qtdParesDezenasSelec < criterio.getQtdDezenasPares()) {
+			
+			throw new Exception("Quantidade de Pares/Impares para sorteio menor que condições do criterio");
+		}
 
 	}
 	
@@ -57,10 +67,23 @@ public abstract class FechamentoBase {
 		Integer numeroObjetos = criterio.getQtdDezenas();
 		Integer posicoes = criterio.getQtdDezenasAposta();
 
-		Long ret = CombinatoricsUtils.binomialCoefficient(numeroObjetos, posicoes);
+		Long combTotal = CombinatoricsUtils.binomialCoefficient(numeroObjetos, posicoes);
 				
-		System.out.println("Combinacoes Possiveis: -> " + ret);
+		System.out.println("Combinacoes Possiveis Total: -> " + combTotal);
 		
+		int qtdImparDezenasSelec = LfacilUtils.getQtdImpares(this.dezenas);
+		int qtdParesDezenasSelec = LfacilUtils.getQtdPares(this.dezenas);
+		
+		Long combPar = CombinatoricsUtils.binomialCoefficient(qtdParesDezenasSelec, criterio.getQtdDezenasPares());
+		Long combImpar = CombinatoricsUtils.binomialCoefficient(qtdImparDezenasSelec, criterio.getQtdDezenasImpares());
+		
+		
+		System.out.println("Pares -> " + combPar);
+		System.out.println("Impares -> " + combImpar);
+		
+		this.combParImpar = combPar * combImpar;
+		
+		System.out.println("Combinacoes Possiveis Par/Impar: -> " + combParImpar);
 	}
 	
 	

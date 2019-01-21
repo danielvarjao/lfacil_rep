@@ -44,7 +44,13 @@ public class GeradorFechamentos extends FechamentoBase {
 		Random random = new Random();
 		
 		
-		for (int i=0; i < criterio.getQtdJogos(); i++) {
+		//for (int i=0; i < criterio.getQtdJogos(); i++) {
+		int controleLoop = 0;	
+		while (fechamentos.size() < criterio.getQtdJogos()) {
+			
+			if (controleLoop > combParImpar) {
+				break;
+			}
 			
 			TreeSet<Integer> listAtual = new TreeSet<>();
 			while (listAtual.size() < criterio.getQtdDezenasAposta()) {
@@ -59,9 +65,10 @@ public class GeradorFechamentos extends FechamentoBase {
 				fechamentos.add(listAtual);
 			}
 			else {
-				System.out.println("REPETIDO");
+				//System.out.println("REPETIDO");
 			}
-			
+		
+			controleLoop++;
 		}
 		
 				

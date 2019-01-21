@@ -48,4 +48,14 @@ public class LfacilUtils {
 		return impares;
 	}
 	
+	public static Integer getQtdPares(TreeSet<Integer> dezenas) {
+				
+		return getQtdPares(new ArrayList<Integer>(dezenas));
+	}
+
+	public static Integer getQtdImpares(TreeSet<Integer> dezenas) {
+
+		return getQtdImpares(new ArrayList<Integer>(dezenas));
+	}
+	
 }
