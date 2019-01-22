@@ -26,5 +26,10 @@ public class FactoryArquivos {
 		
 		return new File(res.getString("arquivo_base_zip")).getAbsolutePath();
 	}
+	
+	public static String getArquivoUltimoFechamento() {
+		
+		return new File(res.getString("arquivo_ultimo_fechamento")).getAbsolutePath();
+	}
 
 }

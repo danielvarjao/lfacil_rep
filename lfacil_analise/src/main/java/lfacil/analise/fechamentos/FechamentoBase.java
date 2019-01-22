@@ -86,7 +86,17 @@ public abstract class FechamentoBase {
 		System.out.println("Combinacoes Possiveis Par/Impar: -> " + combParImpar);
 	}
 	
-	
+	public boolean validaParImpar(TreeSet<Integer> listAtual, CriterioFechamento criterio) {
+
+		int qtdPares = LfacilUtils.getQtdPares(new ArrayList<Integer>(listAtual));
+		int qtdImpares = LfacilUtils.getQtdImpares(new ArrayList<Integer>(listAtual));
+
+		if (qtdPares == criterio.getQtdDezenasPares() && qtdImpares == criterio.getQtdDezenasImpares())
+			return true;
+		else
+			return false;
+	}
+		
 	public void imprimirFechamento(List<TreeSet<Integer>> fechamentos) {
 		
 		System.out.println("Fechamentos gerados: ");
@@ -104,6 +114,13 @@ public abstract class FechamentoBase {
 		}
 		
 	}
+	
+	public void gravarFechamento(List<TreeSet<Integer>> fechamentos) {
+		// TODO Auto-generated method stub
+		//Vai so gravar no TXT, Conferidor fará appends com os acertos
+		
+	}
+	
 	
 	public void imprimirRelacaoParImpar(List<Integer> dezenas) {
 		

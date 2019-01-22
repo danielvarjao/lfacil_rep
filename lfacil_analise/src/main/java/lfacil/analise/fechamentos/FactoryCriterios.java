@@ -19,6 +19,7 @@ public class FactoryCriterios {
 				.qtdDezenasPares(Integer.parseInt(res.getString("qtdDezenasPares")))
 				.qtdDezenasImpares(Integer.parseInt(res.getString("qtdDezenasImpares")))
 				.gerarDezenasRandom(gerarDezenasRandom(res.getString("gerarDezenasRandom")))
+				.gravarFechamento(gravarFechamento(res.getString("gravarFechamento")))
 				.dezenasExcluidas(new ArrayList<Integer>())
 				.build();
 		
@@ -42,7 +43,12 @@ public class FactoryCriterios {
 	
 	private static boolean gerarDezenasRandom(String random) {
 		
-		return random.trim().equals("S") ? true : false;
+		return random.trim().equalsIgnoreCase("S") ? true : false;
+	}
+	
+	private static boolean gravarFechamento(String gravar) {
+		
+		return gravar.trim().equalsIgnoreCase("S") ? true : false;
 	}
 	
 	

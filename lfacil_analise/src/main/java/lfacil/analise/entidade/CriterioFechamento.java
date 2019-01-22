@@ -27,6 +27,6 @@ public class CriterioFechamento {
 	private Integer qtdLinha3;
 	private Integer qtdLinha4;
 	private Integer qtdLinha5;
-
+	private boolean gravarFechamento;
 	
 }
