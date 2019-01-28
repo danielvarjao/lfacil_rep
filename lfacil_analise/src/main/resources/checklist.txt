@@ -6,10 +6,15 @@
 4-Factory Criterios Fechamento 										- OK
 5-Gerar Dezenas de acordo com critério (Excluidas e Random) 		- OK
 
-6-Gerar Fechamento de acordo com critério (Par Impar)
+6-Gerar Fechamento de acordo com critério (Par Impar)				- OK
  -Gerar Fechamento de acordo com critério (Salto)
  -Gerar Fechamento de acordo com critério (Sucessivas)
  -Gerar Fechamento de acordo com critério (Linhas)
+ 
+7-Gerar txt com o fechamento gerado 
+8-Gerar conferidor de resultado										- OK
+9-Gerar critério de dezenas obrigatoriamente presentes
+
  
 #Melhoria
 -Centralizar em um único ponto analise de par/impar (Analise.java, FechamentoBase.java)
