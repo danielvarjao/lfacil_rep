@@ -6,11 +6,15 @@ import java.nio.file.Files;
 import java.util.List;
 import java.util.ListIterator;
 
+import lfacil.analise.fechamentos.GeradorFechamentos;
+
 public class Conferidor {
 
 	public static void main(String[] args) {
 
 		try {
+			
+			//GeradorFechamentos.main(args);
 			
 			Conferidor conf = new Conferidor();
 			conf.confere();
@@ -59,7 +63,13 @@ public class Conferidor {
 			}
 		}
 		
-		if (contador >= 11) {
+		if (contador == 15) {
+			return "[" + line.substring(1, 59) + "]" + " -> " + contador + "**********";
+		}
+		else if (contador == 14) {
+			return "[" + line.substring(1, 59) + "]" + " -> " + contador + "*****";
+		}
+		else if (contador >= 11) {
 			return "[" + line.substring(1, 59) + "]" + " -> " + contador + "**";
 		}
 		
