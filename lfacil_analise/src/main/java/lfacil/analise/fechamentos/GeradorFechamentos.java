@@ -1,5 +1,6 @@
 package lfacil.analise.fechamentos;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -69,7 +70,11 @@ public class GeradorFechamentos extends FechamentoBase {
 		}
 		
 		if (criterio.isGravarFechamento()) {
-			gravarFechamento(fechamentos);
+			try {
+				gravarFechamento(fechamentos);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 				
 		imprimirFechamento(fechamentos);

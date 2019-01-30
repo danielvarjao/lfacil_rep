@@ -11,7 +11,7 @@
  -Gerar Fechamento de acordo com critério (Sucessivas)
  -Gerar Fechamento de acordo com critério (Linhas)
  
-7-Gerar txt com o fechamento gerado 
+7-Gerar txt com o fechamento gerado									- OK 
 8-Gerar conferidor de resultado										- OK
 9-Gerar critério de dezenas obrigatoriamente presentes
 

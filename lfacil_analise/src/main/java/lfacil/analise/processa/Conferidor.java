@@ -35,6 +35,7 @@ public class Conferidor {
 		Files.write(arquivoFechamento.toPath(), lines);
 		
 		System.out.println("Conferência de fechamento realizada.");
+		
 	}
 
 
@@ -48,7 +49,7 @@ public class Conferidor {
 		FactoryBase fac = new FactoryBase(); //Colocar no construtor para obter uma vez só
 		List<Integer> sorteadas = fac.getLastSorteio().getListSorteadas();
 		
-		String[] arrayLinha = line.split(",");
+		String[] arrayLinha = line.substring(1, 59).split(",");
 		
 		Integer contador = 0;
 		for (String dezena : arrayLinha) {
@@ -59,11 +60,11 @@ public class Conferidor {
 		}
 		
 		if (contador >= 11) {
-			return line.substring(0, 58) + " -> " + contador + "**";
+			return "[" + line.substring(1, 59) + "]" + " -> " + contador + "**";
 		}
 		
-		//0 - 58 é o intervalo onde fica o fechamento em cada linha do arquivo
-		return line.substring(0, 58) + " -> " + contador;
+		//1 - 59 é o intervalo onde fica o fechamento em cada linha do arquivo
+		return "[" + line.substring(1, 59) + "]" + " -> " + contador;
 	}
 
 }

@@ -1,5 +1,11 @@
 package lfacil.analise.fechamentos;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,6 +14,8 @@ import java.util.TreeSet;
 import org.apache.commons.math3.util.CombinatoricsUtils;
 
 import lfacil.analise.entidade.CriterioFechamento;
+import lfacil.analise.entidade.Sorteio;
+import lfacil.analise.processa.FactoryArquivos;
 import lfacil.analise.utils.LfacilUtils;
 
 public abstract class FechamentoBase {
@@ -115,9 +123,31 @@ public abstract class FechamentoBase {
 		
 	}
 	
-	public void gravarFechamento(List<TreeSet<Integer>> fechamentos) {
-		// TODO Auto-generated method stub
-		//Vai so gravar no TXT, Conferidor fará appends com os acertos
+	public void gravarFechamento(List<TreeSet<Integer>> fechamentos) throws IOException {
+		
+		File arquivoFechamento = new File(FactoryArquivos.getArquivoUltimoFechamento());
+
+		FileOutputStream fos = new FileOutputStream(arquivoFechamento);
+
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+		
+		for (TreeSet<Integer> fechamento : fechamentos) {
+			
+			List<String> fechFormat = new ArrayList<>();
+			
+			for (Integer num : fechamento) {
+				fechFormat.add(String.format("%02d", num));
+			}
+			
+			bw.write(fechFormat.toString());
+			bw.newLine();
+		}
+		
+		
+		bw.close();
+
+		
+		System.out.println("Arquivo de fechamento gravado.");
 		
 	}
 	
