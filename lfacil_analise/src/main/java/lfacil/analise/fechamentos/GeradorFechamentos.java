@@ -81,18 +81,6 @@ public class GeradorFechamentos extends FechamentoBase {
 
 	}
 
-
-//	private boolean validaParImpar(TreeSet<Integer> listAtual, CriterioFechamento criterio) {
-//		
-//		int qtdPares = LfacilUtils.getQtdPares(new ArrayList<Integer>(listAtual));
-//		int qtdImpares = LfacilUtils.getQtdImpares(new ArrayList<Integer>(listAtual));
-//		
-//		if (qtdPares == criterio.getQtdDezenasPares() && qtdImpares == criterio.getQtdDezenasImpares())
-//			return true;
-//		else
-//			return false;
-//	}
-
 	
 
 }

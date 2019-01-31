@@ -34,12 +34,13 @@ public abstract class FechamentoBase {
 			throw new Exception("Quantidade de Dezenas para sorteio menor que quantidade de Dezenas por Aposta");
 		}
 		
-		//Validar QTD Pares Impares nas dezenas sorteadas
+		//Valida QTD Pares Impares nas dezenas sorteadas
 		int qtdImparDezenasSelec = LfacilUtils.getQtdImpares(this.dezenas);
 		int qtdParesDezenasSelec = LfacilUtils.getQtdPares(this.dezenas);
 		
 		if (qtdImparDezenasSelec < criterio.getQtdDezenasImpares() 
-				|| qtdParesDezenasSelec < criterio.getQtdDezenasPares()) {
+				|| qtdParesDezenasSelec < criterio.getQtdDezenasPares()
+				|| (criterio.getQtdDezenasImpares() + criterio.getQtdDezenasPares()) < criterio.getQtdDezenasAposta()) {
 			
 			throw new Exception("Quantidade de Pares/Impares para sorteio menor que condições do criterio");
 		}

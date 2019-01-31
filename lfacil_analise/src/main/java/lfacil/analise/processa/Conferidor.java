@@ -14,7 +14,7 @@ public class Conferidor {
 
 		try {
 			
-			//GeradorFechamentos.main(args);
+			GeradorFechamentos.main(args);
 			
 			Conferidor conf = new Conferidor();
 			conf.confere();
