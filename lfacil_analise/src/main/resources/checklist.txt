@@ -13,7 +13,7 @@
  
 7-Gerar txt com o fechamento gerado									- OK 
 8-Gerar conferidor de resultado										- OK
-9-Gerar critério de dezenas obrigatoriamente presentes
+9-Gerar critério de dezenas obrigatoriamente presentes				- OK
 
  
 #Melhoria

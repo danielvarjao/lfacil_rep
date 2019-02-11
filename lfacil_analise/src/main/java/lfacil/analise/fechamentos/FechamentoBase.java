@@ -20,8 +20,8 @@ import lfacil.analise.utils.LfacilUtils;
 
 public abstract class FechamentoBase {
 	
-	protected TreeSet<Integer> dezenas;
-	protected Long combParImpar;
+	public TreeSet<Integer> dezenas;
+	public Long combParImpar;
 	
 
 	//Abstract Methods
@@ -54,9 +54,13 @@ public abstract class FechamentoBase {
 		
 		Random random = new Random();
 		
+		if (!criterio.isGerarDezenasRandom()) {
+			dezenas.addAll(criterio.getDezenasFixas());
+		}
+		
 		while(dezenas.size() < criterio.getQtdDezenas()) {
 			
-			int numero = random.nextInt(25) + 1;
+			int numero = random.nextInt(25) + 1;	
 			
 			if (!criterio.isGerarDezenasRandom() && criterio.getDezenasExcluidas().contains(numero)) {
 				continue;

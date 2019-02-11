@@ -42,7 +42,6 @@ public class GeradorFechamentos extends FechamentoBase {
 		Random random = new Random();
 		
 		
-		//for (int i=0; i < criterio.getQtdJogos(); i++) {
 		int controleLoop = 0;	
 		while (fechamentos.size() < criterio.getQtdJogos()) {
 			
@@ -51,6 +50,10 @@ public class GeradorFechamentos extends FechamentoBase {
 			}
 			
 			TreeSet<Integer> listAtual = new TreeSet<>();
+			
+			if (!criterio.isGerarDezenasRandom())
+				listAtual.addAll(criterio.getDezenasFixas());
+			
 			while (listAtual.size() < criterio.getQtdDezenasAposta()) {
 				
 				int numero = dezenasDisponiveis.get(random.nextInt(dezenasDisponiveis.size()));

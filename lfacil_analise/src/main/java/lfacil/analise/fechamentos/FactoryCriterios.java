@@ -21,15 +21,19 @@ public class FactoryCriterios {
 				.gerarDezenasRandom(gerarDezenasRandom(res.getString("gerarDezenasRandom")))
 				.gravarFechamento(gravarFechamento(res.getString("gravarFechamento")))
 				.dezenasExcluidas(new ArrayList<Integer>())
+				.dezenasFixas(new ArrayList<Integer>())
 				.build();
 		
 		setDezenasExcluidas(crit);
+		setDezenasFixas(crit);
 		setQuantidadePorLinha(crit);
 		setMaximos(crit);
 		
 		return crit;
 	}
 	
+	
+
 	public static CriterioAnalise getCriteriosAnalise() {
 		
 		CriterioAnalise crit = CriterioAnalise.builder()
@@ -59,6 +63,17 @@ public class FactoryCriterios {
 		
 		for (String exc : excluidas) {
 			crit.getDezenasExcluidas().add(Integer.parseInt(exc));
+		}
+		
+	}
+	
+	private static void setDezenasFixas(CriterioFechamento crit) {
+
+		String strFixas = res.getString("dezenasFixas");
+		String[] fixas = strFixas.isEmpty() ? new String[0] : strFixas.split(",");
+		
+		for (String fix : fixas) {
+			crit.getDezenasFixas().add(Integer.parseInt(fix));
 		}
 		
 	}

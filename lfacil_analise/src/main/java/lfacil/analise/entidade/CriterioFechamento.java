@@ -20,6 +20,7 @@ public class CriterioFechamento {
 	private Integer qtdDezenasImpares;
 	private boolean gerarDezenasRandom;
 	private List<Integer> dezenasExcluidas;
+	private List<Integer> dezenasFixas;
 	private Integer maximoSalto;
 	private Integer maximoSucessivas;
 	private Integer qtdLinha1;
