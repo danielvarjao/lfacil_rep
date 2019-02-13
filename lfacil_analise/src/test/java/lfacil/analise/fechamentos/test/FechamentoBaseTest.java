@@ -41,6 +41,7 @@ public class FechamentoBaseTest {
 		Assert.assertTrue(criterio.getQtdDezenas() == fech.dezenas.size());
 	}
 	
+	
 	@Test
 	public void gerarDezenasValidarFixas() {
 		
@@ -69,6 +70,34 @@ public class FechamentoBaseTest {
 			Assert.assertTrue(condicao);
 
 		}
+	}
+	
+	
+	@Test
+	public void gerarDezenasSequencias() {
+		
+		int[] a = {1,2,3,4,5,6,7,11,13,20,21,22,23,24,25};
+		
+
+		int count = 1, max = 1;
+
+		for (int i = 1; i < a.length; i++) {
+			
+			int anterior = a[i-1];
+			
+		    if (a[i] == anterior + 1) {
+		        count++;
+		    } else {
+		        count = 1;
+		    }
+
+		    if (count > max) {
+		        max = count;
+		    }
+		}
+
+		System.out.println(max);
+		
 	}
 	
 }

@@ -62,7 +62,9 @@ public class GeradorFechamentos extends FechamentoBase {
 				
 			}
 			
-			if (!fechamentos.contains(listAtual) && validaParImpar(listAtual, criterio)) {
+			if (!fechamentos.contains(listAtual) 
+					&& validaParImpar(listAtual, criterio) 
+					&& calculaMaxSequencia(listAtual) <= criterio.getMaximoSucessivas()) {
 				fechamentos.add(listAtual);
 			}
 			else {

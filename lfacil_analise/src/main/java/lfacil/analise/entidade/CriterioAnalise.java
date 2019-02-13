@@ -13,5 +13,6 @@ public class CriterioAnalise {
 
 	boolean analiseUltimoSorteio;
 	Integer analiseUltimosN;
+	Integer analiseRepeticaoUltimosN;
 	
 }

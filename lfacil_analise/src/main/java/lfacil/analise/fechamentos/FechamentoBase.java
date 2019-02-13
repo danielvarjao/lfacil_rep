@@ -109,6 +109,31 @@ public abstract class FechamentoBase {
 		else
 			return false;
 	}
+	
+	public Integer calculaMaxSequencia(TreeSet<Integer> listAtual) {
+		
+		Integer[] a = listAtual.toArray(new Integer[0]);
+		
+
+		int count = 1, max = 1;
+
+		for (int i = 1; i < a.length; i++) {
+			
+			int anterior = a[i-1];
+			
+		    if (a[i] == anterior + 1) {
+		        count++;
+		    } else {
+		        count = 1;
+		    }
+
+		    if (count > max) {
+		        max = count;
+		    }
+		}
+
+		return max;
+	}
 		
 	public void imprimirFechamento(List<TreeSet<Integer>> fechamentos) {
 		

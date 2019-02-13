@@ -1,10 +1,33 @@
 package lfacil.analise.processa;
 
-public class AnaliseRepDezenas {
+import lfacil.analise.entidade.Sorteio;
+import lfacil.analise.fechamentos.FactoryCriterios;
 
+public class AnaliseRepDezenas extends Analise {
+
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		AnaliseRepDezenas anl = new AnaliseRepDezenas();
+		anl.exec();
 
+	}
+	
+	public AnaliseRepDezenas() {
+		
+		criterio = FactoryCriterios.getCriteriosAnalise();
+		
+		fac = new FactoryBase();
+		
+	}
+	
+	private void exec(){
+		
+		for (Sorteio sorteio : fac.getLastNSorteios(this.criterio.getAnaliseRepeticaoUltimosN())){
+			
+			
+		}
+		
 	}
 
 }
