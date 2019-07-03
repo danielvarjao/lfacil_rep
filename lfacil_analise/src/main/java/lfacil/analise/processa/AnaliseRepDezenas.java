@@ -23,9 +23,23 @@ public class AnaliseRepDezenas extends Analise {
 	
 	private void exec(){
 		
-		for (Sorteio sorteio : fac.getLastNSorteios(this.criterio.getAnaliseRepeticaoUltimosN())){
+		int[] reps = new int[25];
+		
+		int qtdSorteios = this.criterio.getAnaliseRepeticaoUltimosN();
+		
+		for (Sorteio sorteio : fac.getLastNSorteios(qtdSorteios)){
 			
+			for (int i = 0; i < 15; i++) {
+				
+				int dezena = sorteio.getListSorteadas().get(i);
+				reps[dezena-1]++;
+			}
 			
+		}
+		
+		System.out.println("Análise de dezenas últimos " + qtdSorteios + " sorteios.");
+		for (int i = 0; i < 25; i++) {
+			System.out.println("Dezena " + (i+1) + " -> " + reps[i]);
 		}
 		
 	}

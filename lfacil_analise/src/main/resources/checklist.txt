@@ -8,7 +8,7 @@
 
 6-Gerar Fechamento de acordo com critério (Par Impar)				- OK
  -Gerar Fechamento de acordo com critério (Salto)
- -Gerar Fechamento de acordo com critério (Sucessivas)
+ -Gerar Fechamento de acordo com critério (Sucessivas)				- OK
  -Gerar Fechamento de acordo com critério (Linhas)
  
 7-Gerar txt com o fechamento gerado									- OK 

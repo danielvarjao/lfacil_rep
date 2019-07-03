@@ -9,6 +9,11 @@ import java.util.ListIterator;
 import lfacil.analise.fechamentos.GeradorFechamentos;
 
 public class Conferidor {
+	
+	Integer cont11 = 0;
+	Integer cont12 = 0;
+	Integer cont13 = 0;
+	
 
 	public static void main(String[] args) {
 
@@ -70,6 +75,21 @@ public class Conferidor {
 			return "[" + line.substring(1, 59) + "]" + " -> " + contador + "*****";
 		}
 		else if (contador >= 11) {
+			
+			switch (contador) {
+			case 11:
+				this.cont11++;
+				break;
+			case 12:
+				this.cont12++;
+				break;
+			case 13:
+				this.cont13++;
+				break;
+			default:
+				break;
+			}
+			
 			return "[" + line.substring(1, 59) + "]" + " -> " + contador + "**";
 		}
 		

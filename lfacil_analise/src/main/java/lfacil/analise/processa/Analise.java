@@ -39,6 +39,7 @@ public class Analise {
 			analiseParImpar(sorteio);
 			analiseLinhas(sorteio);
 			analiseAusentes(sorteio);
+			analiseRepetidasUltimoSorteio(sorteio);
 			analiseMaximoSalto(sorteio);
 			analiseMaximoSucessivas(sorteio);
 			System.out.println("####################\n");
@@ -137,6 +138,23 @@ public class Analise {
 		}
 		
 		System.out.println("Ausentes -> " + ausentes);
+		System.out.println();
+	}
+	
+	public void analiseRepetidasUltimoSorteio(Sorteio sorteio) {
+		
+		List<Integer> repetidas = new ArrayList<Integer>();
+		
+		Sorteio sorteioAnterior = fac.getSorteio(Integer.parseInt(sorteio.getConcurso())-1);
+		
+		for (Integer dezena : sorteio.getListSorteadas()) {
+			
+			if (sorteioAnterior.getListSorteadas().contains(dezena)) {
+				repetidas.add(dezena);
+			}
+		}
+		
+		System.out.println("Repetidas -> " + repetidas);
 		System.out.println();
 	}
 	
